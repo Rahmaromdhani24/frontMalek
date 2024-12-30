@@ -1,0 +1,52 @@
+<div class="container" #printSection>
+  <h2>Récapitulatif des Services par Mois</h2>
+
+  <div class="filters mb-4">
+    
+    <form (ngSubmit)="onSubmit()" class="form-inline">
+      <div class="form-group mr-3">
+        <label for="state" class="mr-2">État :</label>
+        <select id="state" class="form-control" [(ngModel)]="selectedState" name="state" required>
+          <option value="absence">Absence</option>
+          <option value="autorisation">Autorisation</option>
+          <option value="present">present</option>
+          <option value="absentNonJustifie">absentNonJustifie</option>
+          <option value="absentCourtTerme">absentCourtTerme</option>
+          <option value="absentLongTerme">absentLongTerme</option>
+          <option value="absentAut">absentAut</option>
+          <option value="absentPay">absentPay</option>
+          <option value="autorisation">Autorisation</option>
+        </select>
+      </div>
+      <div class="form-group mr-3">
+        <label for="year" class="mr-2">Année :</label>
+        <select id="year" class="form-control" [(ngModel)]="selectedYear" name="year" required>
+          <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Filtrer</button>
+    </form>
+  </div>
+
+  
+
+  <div class="table-responsive mt-4">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th *ngFor="let month of months">{{ month }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let service of filteredServices">
+          <td>{{ service.name }}</td>
+          <td *ngFor="let month of months">
+            {{ getMonthlyData(service, month) }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div><button class="btn btn-primary mt-3  btn-print" (click)="printPage()">Imprimer</button></div>
+  </div>
+</div>

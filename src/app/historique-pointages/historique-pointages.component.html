@@ -1,0 +1,64 @@
+<div class="container">
+  <h2>Historique de Pointage</h2>
+  
+  <!-- Sélecteur de date -->
+  <div class="form-group">
+    <label for="date">Sélectionnez une date :</label>
+    <input type="date" id="date" [(ngModel)]="selectedDate" class="form-control" (change)="filterPointage()" />
+  </div>
+
+  <!-- Table d'historique -->
+ <!-- Table d'historique -->
+<div class="table-responsive mt-4">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Matricule</th>
+        <th>Nom et Prénom</th>
+        <th>Service</th>
+        <th>Date</th>
+        <th>État</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pointage of filteredPointages">
+        <td>{{ pointage.matr }}</td>
+        <td>{{ pointage.nomPrenom }}</td>
+        <td>{{ pointage.service }}</td>
+        <td>{{ pointage.date | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ pointage.etat }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" (click)="modifyPointage(pointage)">Modifier</button>
+        </td>
+      </tr>
+      <tr *ngIf="filteredPointages.length === 0">
+        <td colspan="6">Aucun pointage trouvé pour cette date.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal de modification -->
+<div *ngIf="isEditModalOpen" class="modal">
+  <div class="modal-content">
+    <h3>Modifier le pointage</h3>
+    <form (ngSubmit)="submitModification()">
+      <div class="form-group">
+        <label for="etat">État</label>
+        <select id="etat" [(ngModel)]="selectedPointage.etat" name="etat" class="form-control">
+          <option value="Présent">Présent</option>
+          <option value="Absent Non Justifié">Absent Non Justifié</option>
+          <option value="Absent Court Terme">Absent Court Terme</option>
+          <option value="Absent Long Terme">Absent Long Terme</option>
+          <option value="Autorisation">Autorisation</option>
+          <option value="Retard">Retard</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success">Sauvegarder</button>
+      <button type="button" class="btn btn-danger" (click)="closeModal()">Fermer</button>
+    </form>
+  </div>
+</div>
+
+</div>

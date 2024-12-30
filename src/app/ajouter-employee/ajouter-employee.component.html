@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ajouter Employé</title>
+</head>
+<body>
+  <div class="container" #printSection>
+    <div class="header"> 
+      <div class="title">Ajouter Employé</div>  
+      <button class="btn btn-primary mt-3  btn-print" (click)="printPage()">Imprimer</button>
+      </div>
+
+    <form (ngSubmit)="ajouterEmployee(f)" #f="ngForm">
+      <div class="form first">
+        <div class="details">
+          <span class="title">Détails personnels</span>
+          <div class="fields">
+            <div class="input-field">
+              <label for="nom_et_prenom_employee">nom et prénom de l'employé</label>
+         <input type="text" class="form-control" placeholder="Enter Le prénom et le nom de l'employé" 
+         name="nom_et_prenom_employee" id="nom_et_prenom_employee" ngModel required #nom_et_prenom_employee="ngModel"
+         pattern="^[a-zA-ZÀ-ÿ\s'-]+$">
+        <div *ngIf="nom_et_prenom_employee.invalid && (nom_et_prenom_employee.dirty || nom_et_prenom_employee.touched)" class="alert alert-danger">
+          <div *ngIf="nom_et_prenom_employee.errors?.['required']">
+           N'oubliez pas le Nom et Prenom.
+           </div>
+           <div *ngIf="nom_et_prenom_employee.errors?.['pattern']">
+            Le prénom et le nom du père de l'employé ne peuvent contenir que des lettres.
+          </div>
+             </div>
+            </div>
+            <div class="input-field">
+              <label for="CIN">Numero CIN</label>
+            <input type="text" class="form-control" placeholder="Enter le Numero Carte d'identité nationale" 
+           name="CIN" id="CIN" ngModel required #CIN="ngModel"
+           pattern="^\d{8}$" minlength="8" maxlength="8">
+           <div *ngIf="CIN.invalid && (CIN.dirty || CIN.touched)" class="alert alert-danger">
+             <div *ngIf="CIN.errors?.['required']">
+              N'oubliez pas Le numéro de CIN 
+             </div>
+             <div *ngIf="CIN.errors?.['pattern']">
+              Le numéro de CIN doit être composé de 8 chiffres.
+              </div>
+              <div *ngIf="CIN.errors?.['minlength'] || CIN.errors?.['maxlength']">
+            Le numéro de CIN doit être de 8 caractères.
+               </div>
+             </div>
+            </div>
+            <div class="input-field">
+              <label for="N_TEL">Numéro de téléphone</label>
+              <input type="text" class="form-control" placeholder="Enter le Numéro de téléphone" 
+               name="N_TEL" id="N_TEL" ngModel required #N_TEL="ngModel"
+              pattern="^\d{1,8}$" minlength="1" maxlength="8">
+              <div *ngIf="N_TEL.invalid && (N_TEL.dirty || N_TEL.touched)" class="alert alert-danger">
+              <div *ngIf="N_TEL.errors?.['required']">
+                 N'oubliez pas Le numéro de téléphone
+              </div>
+             <div *ngIf="N_TEL.errors?.['pattern']">
+               Le numéro de téléphone doit contenir uniquement des chiffres et ne pas dépasser 8 chiffres.
+             </div>
+            <div *ngIf="N_TEL.errors?.['minlength']">
+               Le numéro de téléphone doit contenir au moins 1 chiffre.
+            </div>
+           <div *ngIf="N_TEL.errors?.['maxlength']">
+               Le numéro de téléphone ne doit pas dépasser 8 chiffres.
+           </div>
+           </div>
+            </div>
+          </div>
+          <div class="fields">
+            <div class="input-field">
+              <label for="Nom_Et_Prenom_Pere_Employee">Le prénom et le nom du père de l'employé</label>
+         <input type="text" class="form-control" placeholder="Enter Le prénom et le nom du père de l'employé" 
+         name="Nom_Et_Prenom_Pere_Employee" id="Nom_Et_Prenom_Pere_Employee" ngModel required #Nom_Et_Prenom_Pere_Employee="ngModel"
+         pattern="^[a-zA-ZÀ-ÿ\s'-]+$">
+          <div *ngIf="Nom_Et_Prenom_Pere_Employee.invalid && (Nom_Et_Prenom_Pere_Employee.dirty || Nom_Et_Prenom_Pere_Employee.touched)" class="alert alert-danger">
+          <div *ngIf="Nom_Et_Prenom_Pere_Employee.errors?.['required']">
+           N'oubliez pas Le prénom et le nom du père de l'employé.
+           </div>
+           <div *ngIf="Nom_Et_Prenom_Pere_Employee.errors?.['pattern']">
+            Le prénom et le nom du père de l'employé ne peut contenir que des lettres.
+          </div>
+             </div>
+            </div>
+            <div class="input-field">
+              <label>Domiciliation irré-salaire</label>
+              <div class="radio-container">
+                <div class="radio-group">
+                  <input type="radio" id="oui" name="domici_irre_salaire" [value]="true" ngModel required>
+                  <label for="oui">Oui</label>
+                </div>
+                <div class="radio-group">
+                  <input type="radio" id="non" name="domici_irre_salaire" [value]="false" ngModel required>
+                  <label for="non">Non</label>
+                </div>
+              </div>
+              <div *ngIf="f.controls['domici_irre_salaire']?.invalid && f.controls['domici_irre_salaire']?.touched" class="alert alert-danger">
+                Veuillez sélectionner une option.
+              </div>
+            </div>
+            
+            
+          </div>
+          <div class="fields">
+            <div class="input-field">
+              <label for="Date_nais">Date de naissance</label>
+              <input type="date" class="form-control" placeholder="Enter la Date de naissance" name="Date_nais" id="Date_nais" ngModel required #Date_nais="ngModel">
+            </div>
+            <div class="input-field">
+              <label for="POINTURE">Pointure</label>
+              <input type="number" class="form-control" placeholder="Enter la Pointure" name="POINTURE" id="POINTURE" ngModel
+                  min="1" max="50" #POINTURE="ngModel">
+                  <div *ngIf="POINTURE.invalid && (POINTURE.dirty || POINTURE.touched)" class="alert alert-danger">
+                  <div *ngIf="POINTURE.errors?.['min']">La pointure ne peut pas être inférieure à 1.</div>
+                  <div *ngIf="POINTURE.errors?.['max']">La pointure ne peut pas être supérieure à 50.</div>
+                  </div>
+               </div>
+            <div class="input-field">
+              <label for="TAILLE">Taille</label>
+              <input type="number" class="form-control" placeholder="Enter la Taille" name="TAILLE" id="TAILLE" ngModel
+                     min="30" max="200" #TAILLE="ngModel">
+              <div *ngIf="TAILLE.invalid && (TAILLE.dirty || TAILLE.touched)" class="alert alert-danger">
+                <div *ngIf="TAILLE.errors?.['min']">La taille ne peut pas être inférieure à 30 cm.</div>
+                <div *ngIf="TAILLE.errors?.['max']">La taille ne peut pas être supérieure à 200 cm.</div>
+              </div>            </div>
+          </div>
+          <div class="fields">
+            <div class="input-field">
+              <label for="RIB">RIB</label>
+              <input type="text" class="form-control" placeholder="Enter le RIB" 
+                     name="RIB" id="RIB" ngModel required #RIB="ngModel"
+                     pattern="^[a-zA-Z0-9]{1,23}$" minlength="1" maxlength="23">
+              <div *ngIf="RIB.invalid && (RIB.dirty || RIB.touched)" class="alert alert-danger">
+                <div *ngIf="RIB.errors?.['required']">
+                  N'oubliez pas le RIB.
+                </div>
+                <div *ngIf="RIB.errors?.['pattern']">
+                  Le RIB ne doit contenir que des lettres et des chiffres.
+                </div>
+                <div *ngIf="RIB.errors?.['minlength']">
+                  Le RIB doit contenir au moins 1 caractère.
+                </div>
+                <div *ngIf="RIB.errors?.['maxlength']">
+                  Le RIB ne peut pas dépasser 23 caractères.
+                </div>
+              </div>
+            </div>
+            <div class="input-field">
+              <label for="MODE_PAY">Mode de paiement</label>
+              <select class="form-control" id="MODE_PAY" name="MODE_PAY" ngModel required>
+                <option *ngFor="let mode of (modesPaiement | keyvalue)" [value]="mode.value">{{ mode.value }}</option>
+              </select>
+            </div>
+            <div class="input-field">
+              <label for="BANK">Bank</label>
+              <input type="text" class="form-control" placeholder="Enter le nom du Bank" name="BANK" id="BANK" ngModel>
+            </div>
+            <div class="fields">
+           
+          </div>
+          </div>
+          <div class="fields">
+            <div class="input-field">
+              <label>Genre</label>
+              <div class="radio-container">
+                <div class="radio-group">
+                  <input type="radio" id="homme" name="SF" value="homme" ngModel>
+                  <label for="homme">Homme</label>
+                </div>
+                <div class="radio-group">
+                  <input type="radio" id="femme" name="SF" value="femme" ngModel>
+                  <label for="femme">Femme</label>
+                </div>
+              </div>
+            </div>
+            <div class="input-field">
+              <label for="Etat_civil">État civil</label>
+              <select class="form-control" name="Etat_civil" id="Etat_civil" ngModel>
+                <option value="célibataire">Célibataire</option>
+                <option value="marié">Marié</option>
+                <option value="marié">Divorce</option>
+              </select>
+            </div>
+            <div class="input-field">
+              <label for="NB_ENF">Nombre d'enfants</label>
+              <input type="number" class="form-control" placeholder="Entrez le nombre d'enfants" name="NB_ENF" id="NB_ENF" ngModel>
+            </div>
+          </div>
+        </div>
+        <div class="details">
+          <span class="title">Détails Professionnels</span>
+          <div class="fields">
+            <div class="input-field">
+              <label for="matr">Matricule</label>
+              <input type="number" class="form-control" placeholder="Enter la Matricule" name="matr" id="matr" ngModel>
+            </div>
+            <div class="input-field">
+              <label for="Date_recr">Date de recrutement</label>
+              <input type="date" class="form-control" placeholder="Enter la Date de recrutement" name="Date_recr" id="Date_recr" ngModel>
+            </div>
+            <div class="input-field">
+              <label for="Fin_contr">Fin De Contrat</label>
+              <input type="date" class="form-control" placeholder="Enter la Date de Fin De Contrat" name="Fin_contr" id="Fin_contr" ngModel>
+            </div>
+          </div>
+        </div>
+        <div class="fields">
+          <div class="input-field">
+            <label for="classe">Classe</label>
+    <select class="form-control" id="classe" name="classe" ngModel required>
+      <option *ngFor="let classe of (classes | keyvalue)" [value]="classe.value">{{ classe.value }}</option>
+    </select>
+          </div>
+          <div class="input-field">
+            <label for="Type_de_cont">Type de contrat</label>
+            <select class="form-control" id="Type_de_cont" name="Type_de_cont" ngModel required>
+              <option *ngFor="let type of (typesContrat | keyvalue)" [value]="type.value">{{ type.value }}</option>
+            </select>
+          </div>
+          <div class="input-field">
+            <label for="Service">Service</label>
+            <select class="form-control" id="Service" name="Service" ngModel required>
+              <option *ngFor="let service of services" [value]="service.value">{{ service.value }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="fields">
+        <div class="input-field">
+          <label for="NOM_DU_CHEF">Nom du chef</label>
+          <select class="form-control" id="NOM_DU_CHEF" name="NOM_DU_CHEF" ngModel required>
+            <option *ngFor="let chef of (chefs | keyvalue)" [value]="chef.value">{{ chef.value }}</option>
+          </select>        
+        </div>
+        <div class="input-field">
+          <label>Test</label>
+          <div class="radio-container">
+            <div class="radio-group">
+              <input type="radio" id="vrai" name="test" [value]="true" ngModel>
+              <label for="vrai">Oui</label>
+            </div>
+            <div class="radio-group">
+              <input type="radio" id="faux" name="test" [value]="false" ngModel>
+              <label for="faux">Non</label>
+            </div>
+          </div>
+        </div>
+        
+       </div>
+       <div class="button-container">
+        <button type="submit"[disabled]="f.invalid">Ajouter Employé</button>
+      </div>
+    </form>
+  </div>
+  
+</body>
+</html>

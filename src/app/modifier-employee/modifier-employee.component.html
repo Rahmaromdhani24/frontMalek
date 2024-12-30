@@ -1,0 +1,141 @@
+<div class="display-area p-3">
+  <div class="modifier-employe">
+    <h2>Modifier Employé</h2>
+       <!-- Message de succès -->
+       <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+    
+       <!-- Message d'erreur -->
+       <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+    <form [formGroup]="employeForm" (ngSubmit)="onSubmit()">
+      <div *ngIf="employe">
+        <label for="matr">Matricule</label>
+        <input id="matr" formControlName="matr"  />
+
+        <label for="nom_et_prenom_employee">nom et prénom de l'employé</label>
+        <input id="nom_et_prenom_employee" formControlName="nom_et_prenom_employee" />
+        
+        <label for="sf">Genre</label>
+        <select id="sf" formControlName="sf">
+          <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+        </select>
+
+        <label for="cin">carte d'identité nationale (cin)</label>
+        <input id="cin" formControlName="cin" />
+
+        <label for="date_nais">Date de naissance</label>
+        <input id="date_nais" type="date" formControlName="date_nais" (change)="calculateAge()" />
+
+
+        <label for="n_tel">Numéro de téléphone</label>
+        <input id="n_tel" formControlName="n_tel" />
+
+        <label for="etat">État civil</label>
+        <select id="etat" formControlName="etat">
+          <option *ngFor="let etatCivil of etatsCivil" [value]="etatCivil">{{ etatCivil }}</option>
+        </select>
+
+        <label for="nb_enf">Nombre d'enfants</label>
+        <input id="nb_enf" type="number" formControlName="nb_enf" />
+
+        <label for="nom_et_prenom_employee_pere">nom et prénom du père du l'employé</label>
+        <input id="nom_et_prenom_employee_pere" formControlName="nom_et_prenom_employee_pere" />
+        
+
+        <label for="serv">Service</label>
+        <select id="serv" formControlName="serv">
+          <option *ngFor="let service of services" [value]="service">{{ service }}</option>
+        </select>
+        <label for="nom_de_chef">Nom du chef</label>
+        <select id="nom_de_chef" formControlName="nom_de_chef">
+          <option *ngFor="let chef of chefs" [value]="chef">{{ chef }}</option>
+        </select>
+
+        <label for="classe">Classe</label>
+        <select id="classe" formControlName="classe">
+          <option *ngFor="let classe of classes" [value]="classe">{{ classe }}</option>
+        </select>
+        <label for="Age">Âge</label>
+       <input id="Age" formControlName="Age"  />
+
+        
+
+        <div class="input-field">
+          <label for="domici_irre_salaire">Domicilié irréparable salaire</label>
+          <div class="radio-container">
+            <div class="radio-group">
+              <input type="radio" id="oui" formControlName="domici_irre_salaire" [value]="true" />
+              <label for="oui">Oui</label>
+            </div>
+            <div class="radio-group">
+              <input type="radio" id="non" formControlName="domici_irre_salaire" [value]="false" />
+              <label for="non">Non</label>
+            </div>
+          </div>
+        </div>
+
+        <label for="type_de_contrat">Type de contrat</label>
+        <select id="type_de_contrat" formControlName="type_de_contrat">
+          <option *ngFor="let typeContrat of typesContrat" [value]="typeContrat">{{ typeContrat }}</option>
+        </select>
+       
+
+        <label for="date_recr">Date de recrutement</label>
+        <input id="date_recr" type="date" formControlName="date_recr" />
+
+      
+
+        <label for="fin_contr">Fin de contrat</label>
+        <input id="fin_contr" type="date" formControlName="fin_contr" />
+
+        <label for="taille">Taille</label>
+        <input id="taille" type="number" formControlName="taille" />
+
+        <label for="pointure">Pointure</label>
+        <input id="pointure" type="number" formControlName="pointure" />
+
+       
+
+        <label for="mode_pay">Mode de paiement</label>
+        <select id="mode_pay" formControlName="mode_pay">
+          <option *ngFor="let mode of modesPaiement" [value]="mode">{{ mode }}</option>
+        </select>
+
+        <label for="bank">Banque</label>
+        <input id="bank" formControlName="bank" />
+
+        <label for="rib">RIB</label>
+        <input id="rib" formControlName="rib" />
+
+
+       
+
+        <div class="input-field">
+          <label for="test">Test</label>
+          <div class="radio-container">
+            <div class="radio-group">
+              <input type="radio" id="vrai" formControlName="test" [value]="true" />
+              <label for="vrai">Oui</label>
+            </div>
+            <div class="radio-group">
+              <input type="radio" id="faux" formControlName="test" [value]="false" />
+              <label for="faux">Non</label>
+            </div>
+          </div>
+        </div>
+        <label for="quitte_le">Quitte le</label>
+        <input id="quitte_le" type="date" formControlName="quitte_le" />
+
+        <label for="remarque">Remarque</label>
+        <textarea id="remarque" formControlName="remarque"></textarea>
+       
+        <br>
+        <div class="btn">
+        <button type="submit">Enregistrer les modifications</button>
+      </div>
+      <div class="back-button">
+        <button class="btn btn-secondary" (click)="retour()">Retour</button>
+    </div>
+  </div>
+    </form>
+  </div>
+</div>

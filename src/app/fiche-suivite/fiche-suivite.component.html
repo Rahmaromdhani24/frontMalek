@@ -1,0 +1,97 @@
+<br><br><br><br>
+<div class="display-area">
+  <div class="employee-details p-3">
+    <div class="detail-header" #printSection>
+      <h2>Fiche Suivite de {{ selectedEmployee?.nom_et_prenom_employee }}</h2>
+      <button class="btn btn-primary1 mt-3" (click)="printPage()">Imprimer</button>
+    </div>
+
+    <!-- Informations de l'employé -->
+    <div class="detail-info">
+      <div><span class="label">Matricule:</span> <span class="value">{{ selectedEmployee?.matr }}</span></div>
+      <div><span class="label">nom et prénom de l'employé:</span> <span class="value">{{ selectedEmployee?.nom_et_prenom_employee }}</span></div>
+      <div><span class="label">CIN :</span> <span class="value">{{ selectedEmployee?.cin }}</span></div>
+      <div><span class="label">Numéro de téléphone:</span> <span class="value">{{ selectedEmployee?.n_tel }}</span></div>
+
+      <div><span class="label">nom et prénom du père du l'employé :</span> <span class="value">{{ selectedEmployee?.nom_et_prenom_employee_pere }}</span></div>
+      <div><span class="label">Genre:</span> <span class="value">{{ selectedEmployee?.sf }}</span></div>
+      <div><span class="label">État civil:</span> <span class="value">{{ selectedEmployee?.etat }}</span></div>
+     
+      <div><span class="label">Date de naissance:</span> <span class="value">{{ selectedEmployee?.date_nais }}</span></div>
+      <div><span class="label">Nombre d'enfants:</span> <span class="value">{{ selectedEmployee?.nb_enf }}</span></div>
+
+     
+
+      <div><span class="label">Classe:</span> <span class="value">{{ selectedEmployee?.classe }}</span></div>
+      <div><span class="label">Service:</span> <span class="value">{{ selectedEmployee?.serv }}</span></div>
+      <div><span class="label">Nom du chef:</span> <span class="value">{{ selectedEmployee?.nom_de_chef }}</span></div>
+      
+      <div><span class="label">Domiciliation irré-salaire:</span> 
+        <span class="value">{{ selectedEmployee?.domici_irre_salaire ? 'Oui' : 'Non' }}</span>
+        </div>
+      <div><span class="label">Date de recrutement:</span> <span class="value">{{ selectedEmployee?.date_recr }}</span></div>
+      <div><span class="label">Test:</span> 
+        <span class="value">{{ selectedEmployee?.test ? 'Oui' : 'Non' }}</span>
+       </div>
+       <div *ngIf="alert === 1" class="alert-box">
+        <span class="icon"><i class="fas fa-exclamation-circle"></i></span>
+        <strong>Alerte Fin de contrat imminente.</strong> 
+        
+      </div>
+      </div>
+
+    <!-- Sélection d'année -->
+    <div class="year-selection">
+      <label for="yearSelect">Choisissez l'année:</label>
+      <select id="yearSelect" [(ngModel)]="selectedYear" (change)="onYearChange()">
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+
+    <!-- Tableau des pointages -->
+    <div class="pointage-table">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Mois</th>
+            <th>Présent</th>
+            <th>Absent Non Justifié</th>
+            <th>Absent Court Terme</th>
+            <th>Absent Long Terme</th>
+            <th>Absent AUT</th>
+            <th>Absent PAY</th>
+            <th>Autorisation</th>
+            <th>Retard</th>
+            <th>Retard Autorisé</th>
+            <th>Congé</th>
+            <th>Mise à Pied</th>
+            <th>Jour Férié</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let etat of filteredEtatPointagesMonthly">
+            <td>{{ etat.mois }}</td>
+            <td>{{ etat.nbPresent }}</td>
+            <td>{{ etat.nbAbsentNonJustifie }}</td>
+            <td>{{ etat.nbAbsentCourtTerme }}</td>
+            <td>{{ etat.nbAbsentLongTerme }}</td>
+            <td>{{ etat.nbAbsentAut }}</td>
+            <td>{{ etat.nbAbsentPay }}</td>
+            <td>{{ etat.nbAutorisation }}</td>
+            <td>{{ etat.nbRetard }}</td>
+            <td>{{ etat.nbRetardAutorise }}</td>
+            <td>{{ etat.nbConge }}</td>
+            <td>{{ etat.nbMiseAPied }}</td>
+            <td>{{ etat.nbJourFerie }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+
+    <!-- Bouton de retour -->
+    <button (click)="retour()" class="btn btn-primary">Retour</button>
+  </div>
+ 
+
+</div>

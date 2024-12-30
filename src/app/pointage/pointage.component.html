@@ -1,0 +1,78 @@
+
+<div class="container" #printSection>
+  <div class="header"> 
+  <button class="btn btn-primary " (click)="printPage()">Imprimer</button>
+  <div class="mb-3">
+    <label for="fileInput" class="btn btn-primary">Importer un fichier</label>
+    <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden>
+  </div>
+  </div>
+  <div class="display-area p-3">
+    <div class="current-date d-flex justify-content-between align-items-center mb-3">
+      <h4>Date d'aujourd'hui : {{ currentDate | date: 'dd/MM/yyyy' }}</h4>   
+    </div>
+    
+    <div class="row mb-3">
+      <div class="col">
+        <input type="text" [(ngModel)]="searchNom" placeholder="Rechercher par nom" class="form-control" />
+      </div>
+      <div class="col">
+        <input type="text" [(ngModel)]="searchMatricule" placeholder="Rechercher par matricule" class="form-control" />
+      </div>
+    </div>
+    
+    <!-- Formulaire de pointage -->
+    <form [formGroup]="pointageForm" (ngSubmit)="onSubmit()">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-light">
+          <tr>
+            <th>Matricule</th>
+            <th>Nom et Prénom</th>
+            <th>Téléphone</th>
+            <th>Service</th>
+            <th>Présent</th>
+            <!-- <th>Absent Non Justifié</th>
+            <th>Absent Court Terme</th>
+            <th>Absent Long Terme</th>
+            <th>Absent AUT</th>
+            <th>Absent PAY</th>-->
+            <th>Autorisation</th> 
+            <!-- <th>Retard</th>
+            <th>Retard Autorisé</th>
+            <th>Congé</th>
+            <th>Mise à Pied</th>
+            <th>Jour Férié</th> -->
+            <th>Autres</th>
+            <th>Remarque</th>
+          </tr>
+        </thead>
+        <tbody formArrayName="pointages">
+          <tr *ngFor="let pointage of filteredPointages(); let i = index" [formGroupName]="i">
+            <td>{{ pointage.get('matr')?.value }}</td>
+            <td>{{ pointage.get('Nom_Et_Prenom_Employee')?.value }}</td>
+            <td>{{ pointage.get('N_TEL')?.value }}</td>
+            <td>{{ pointage.get('Service')?.value }}</td>
+            <td><input type="number" formControlName="present" class="form-control" /></td>
+            <!-- <td><input type="number" formControlName="absentNonJustifie" class="form-control" /></td>
+            <td><input type="number" formControlName="absentCourtTerme" class="form-control" /></td>
+            <td><input type="number" formControlName="absentLongTerme" class="form-control" /></td>
+            <td><input type="number" formControlName="absentAut" class="form-control" /></td>
+            <td><input type="number" formControlName="absentPay" class="form-control" /></td> -->
+            <td><input type="number" formControlName="autorisation" class="form-control" /></td>
+           <!-- <input type="number" formControlName="retard" class="form-control" /></td>
+            <td><input type="number" formControlName="retardAutorise" class="form-control" /></td>
+            <td><input type="number" formControlName="conge" class="form-control" /></td>
+            <td><input type="number" formControlName="miseAPied" class="form-control" /></td>
+            <td><input type="number" formControlName="jourFerie" class="form-control" /></td> -->
+            <td>  <button (click)="autres(pointage.get('Nom_Et_Prenom_Employee')?.value ,pointage.get('matr')?.value )" class="btn btn-info btn-sm">
+              <i class="fa-solid fa-plus"></i> autres
+          </button></td>
+            <td><input type="text" formControlName="remarque" class="form-control" /></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-success" type="submit">Enregistrer</button>
+    </form>
+    <!-- <i class="fa-solid fa-plus"></i> autres -->
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Autres informations pour l'employé : {{ Nom_Et_Prenom_Employee }} (Matricule: {{ matr }})</h2>
+    <form [formGroup]="autresForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="dateDebut">Date de début de la période</label>
+        <input type="date" id="dateDebut" formControlName="dateDebut" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="dateFin">Date de fin de la période</label>
+        <input type="date" id="dateFin" formControlName="dateFin" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="etat">Sélectionner l'état</label>
+        <select id="etat" formControlName="etat" class="form-control">
+          <option *ngFor="let option of etatOptions" [value]="option.value">{{ option.label }}</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-success">Enregistrer</button>
+    </form>
+  </div>
+  

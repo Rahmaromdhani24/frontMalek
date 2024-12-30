@@ -1,0 +1,35 @@
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #343a40;
+}
+
+.table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.table th {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+}
+
+.table td {
+  text-align: center;
+}
+
+button.btn-sm {
+  font-size: 14px;
+  padding: 5px 10px;
+}

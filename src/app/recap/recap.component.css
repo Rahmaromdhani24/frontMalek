@@ -1,0 +1,114 @@
+.container {
+  max-width: 800px; /* Largeur maximale du conteneur */
+  margin: 20px auto; /* Centrage horizontal */
+  padding: 20px; /* Espacement interne */
+  border: 1px solid #ced4da; /* Bordure */
+  border-radius: 5px; /* Coins arrondis */
+  background-color: #f8f9fa; /* Couleur de fond */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+h2 {
+  text-align: center; /* Centrage du titre */
+  margin-bottom: 20px; /* Marge inférieure */
+  color: #343a40; /* Couleur du texte */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Espacement entre les groupes de formulaire */
+}
+
+label {
+  font-weight: bold; /* Texte en gras pour les étiquettes */
+  margin-bottom: 5px; /* Marge inférieure */
+  display: block; /* Affichage en bloc */
+}
+
+input[type="date"],
+select {
+  width: 100%; /* Largeur pleine */
+  padding: 10px; /* Espacement interne */
+  border: 1px solid #ced4da; /* Bordure */
+  border-radius: 4px; /* Coins arrondis */
+  transition: border-color 0.3s; /* Transition pour le changement de couleur de bordure */
+}
+
+input[type="date"]:focus,
+select:focus {
+  border-color: #007bff; /* Couleur de bordure au focus */
+  outline: none; /* Supprimer le contour par défaut */
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between; /* Espacement entre les boutons */
+  margin-bottom: 15px; /* Marge pour espacer des autres éléments */
+}
+
+button.btn-filter,
+button.btn-print {
+  padding: 5px 10px; /* Réduction de la taille des boutons */
+  font-size: 14px; /* Taille de police réduite */
+  border-radius: 3px; /* Coins légèrement arrondis */
+}
+
+button.btn-filter {
+  background-color: #28a745; /* Couleur pour le bouton Filtrer */
+  color: white;
+  border: none;
+}
+
+button.btn-filter:hover {
+  background-color: #218838; /* Couleur au survol pour le bouton Filtrer */
+}
+
+button.btn-print {
+  background-color: #17a2b8; /* Couleur pour le bouton Imprimer */
+  color: white;
+  border: none;
+}
+
+button.btn-print:hover {
+  background-color: #138496; /* Couleur au survol pour le bouton Imprimer */
+}
+
+
+.table {
+  width: 100%; /* Largeur pleine pour le tableau */
+  margin-top: 20px; /* Marge supérieure pour espacer du formulaire */
+}
+
+.table th,
+.table td {
+  text-align: center; /* Centrer le texte dans le tableau */
+  padding: 8px; /* Espacement interne pour les cellules */
+}
+
+.table th {
+  background-color: #007bff; /* Couleur de fond des en-têtes */
+  color: white; /* Couleur du texte des en-têtes */
+}
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .container,
+  .container * {
+    visibility: visible;
+  }
+
+  .container {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .btn, .form-control, .error-message {
+    display: none;
+  }
+  
+}
+
+
+

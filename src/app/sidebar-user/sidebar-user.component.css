@@ -1,0 +1,68 @@
+/* Style global pour les sidebars */
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transition: transform 0.3s ease;
+}
+
+.nav-list-item {
+    position: relative;
+}
+
+.nav-list-item a {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-list-item a:hover {
+    background-color: #007bff; /* Couleur de survol */
+    color: #fff; /* Couleur du texte lors du survol */
+}
+
+/* Styles pour les icônes */
+.nav-list-item a i {
+    margin-right: 10px; /* Espace entre l'icône et le texte */
+    font-size: 1.2em; /* Taille des icônes */
+}
+
+/* Style pour la sidebar */
+.app-sidebar,
+.app-sidebar-user {
+    width: 250px; /* Largeur de la sidebar */
+    background-color: #f8f9fa; /* Couleur de fond de la sidebar */
+    height: 100vh; /* Hauteur de la sidebar */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Ombre pour un effet de profondeur */
+    position: fixed; /* Fixe la sidebar à gauche */
+    top: 0;
+    left: 0; /* Positionnement à gauche */
+    transform: translateX(-100%); /* Masquer la sidebar par défaut */
+}
+
+.app-side-nav-open {
+    transform: translateX(0); /* Afficher la sidebar */
+}
+
+/* Styles pour le contenu principal */
+.display-area {
+    margin-left: 250px; /* Espace pour la sidebar */
+    padding: 20px; /* Padding pour le contenu principal */
+    transition: margin-left 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .app-sidebar,
+    .app-sidebar-user {
+        width: 200px; /* Ajustez la largeur pour les petits écrans */
+    }
+
+    .display-area {
+        margin-left: 200px; /* Espace pour la sidebar sur petits écrans */
+    }
+}

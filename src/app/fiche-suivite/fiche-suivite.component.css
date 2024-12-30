@@ -1,0 +1,167 @@
+/* Styles généraux */
+.container {
+  background-color: #f8f9fa; /* Couleur de fond légère */
+  border-radius: 8px; /* Coins arrondis */
+  padding: 20px; /* Espacement interne */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+.display-area {
+  background-color: #ffffff; /* Fond blanc pour la zone d'affichage */
+  border-radius: 8px; /* Coins arrondis */
+  padding: 20px; /* Espacement interne */
+}
+/* Conteneur principal de la fiche d'employé */
+.employee-details {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* En-tête des détails de l'employé */
+.detail-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.detail-header h2 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+/* Informations de l'employé */
+.detail-info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes égales */
+  gap: 1rem; /* Espacement entre les éléments */
+  margin-bottom: 2rem;
+}
+
+.detail-info div {
+  display: flex;
+  align-items: center;
+}
+
+.detail-info .label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+  color: #555;
+}
+
+.detail-info .value {
+  color: #333;
+}
+
+/* Tableau récapitulatif mensuel */
+.summary-table {
+  margin-top: 2rem;
+}
+
+.summary-table h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Styles du tableau */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.table td {
+  background-color: #fff;
+}
+
+/* Bouton retour */
+.back-button {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.back-button .btn {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.back-button .btn:hover {
+  background-color: #5a6268;
+}
+
+/* Styles d'alerte */
+.alert-warning {
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+  color: #856404;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.alert-box {
+  background-color: #fff4e5; /* Fond léger orange */
+  color: #856404;            /* Couleur du texte sombre */
+  padding: 15px 20px;        /* Espacement intérieur suffisant */
+  border-left: 4px solid #ffcc00; /* Bordure gauche pour accentuer l'alerte */
+  border-radius: 4px;        /* Coins légèrement arrondis */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Légère ombre pour effet flottant */
+  margin-top: 20px;          /* Espacement au-dessus de l'alerte */
+  font-size: 16px;           /* Taille de texte modérée */
+  display: flex;             /* Alignement du texte avec l'icône */
+  align-items: center;       /* Centrer verticalement */
+}
+
+.alert-box strong {
+  font-weight: 600;          /* Mettez en évidence le texte en gras */
+}
+
+.alert-box .icon {
+  margin-right: 10px;        /* Espacement entre l'icône et le texte */
+  font-size: 20px;           /* Taille de l'icône plus grande */
+  color: #ff9900;            /* Couleur de l'icône */
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px; /* Pour espacer le header du formulaire */
+}
+
+button.btn-primary1 {
+  position: absolute;
+  top: 20px; /* Distance depuis le haut */
+  right: 20px; /* Distance depuis la droite */
+  background-color: #007bff;
+  border-color: #007bff;
+  font-weight: bold;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+button.btn-primary1:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+button.btn-primary1:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}

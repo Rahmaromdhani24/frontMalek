@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <h2>Modifier un Utilisateur</h2>
+    <form [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="username" class="form-label">Email</label>
+        <input type="username" id="username" formControlName="username" class="form-control" placeholder="Entrez le nom d'utlisateur" />
+        <div *ngIf="editUserForm.get('username')?.invalid && editUserForm.get('username')?.touched" class="text-danger">
+          le nom d'utlisateur invalide.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe</label>
+        <input type="password" id="password" formControlName="password" class="form-control" placeholder="Entrez le mot de passe" />
+        <div *ngIf="editUserForm.get('password')?.invalid && editUserForm.get('password')?.touched" class="text-danger">
+          Le mot de passe est requis.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="role" class="form-label">Rôle</label>
+        <select id="role" formControlName="role" class="form-select">
+          <option value="">-- Sélectionnez un rôle --</option>
+          <option value="admin">Admin</option>
+          <option value="user">Utilisateur</option>
+        </select>
+        <div *ngIf="editUserForm.get('role')?.invalid && editUserForm.get('role')?.touched" class="text-danger">
+          Le rôle est requis.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="editUserForm.invalid">Modifier Utilisateur</button>
+    </form>
+  </div>
+  

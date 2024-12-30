@@ -1,0 +1,40 @@
+{
+  "auth": [
+    {
+      "id": 1,
+      "username": "admin@example.com",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "username": "user@example.com",
+      "password": "user123",
+      "role": "user"
+    },
+    {
+      "username": "malak@malak122.com",
+      "password": "malak123",
+      "role": "user",
+      "id": 3
+    },
+    {
+      "username": "malak@malak12.com",
+      "password": "123456",
+      "role": "admin",
+      "id": 3
+    },
+    {
+      "username": "malak789",
+      "password": "malak789",
+      "role": "admin",
+      "id": 4
+    },
+    {
+      "username": "admin2",
+      "password": "admin3",
+      "role": "admin",
+      "id": 5
+    }
+  ]
+}

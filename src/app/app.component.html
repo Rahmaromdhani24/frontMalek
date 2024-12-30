@@ -1,0 +1,21 @@
+<div *ngIf="showHeaderAndSidebar" class="container-fluid g-0">
+  <app-header (sideNavToggled)="sideNavStatus = $event;" 
+              [ngClass]="{'app-side-nav-open': sideNavStatus}">
+  </app-header>
+  
+  <main>
+    <!-- Sidebar pour Admin -->
+    <app-sidebar *ngIf="isAdmin" [sideNavStatus]="sideNavStatus"></app-sidebar>
+
+    <!-- Sidebar pour User -->
+    <app-sidebar-user *ngIf="!isAdmin" [sideNavStatus]="sideNavStatus"></app-sidebar-user>
+    
+    <div class="display-area p-3">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
+
+<div *ngIf="!showHeaderAndSidebar">
+  <router-outlet></router-outlet>
+</div>

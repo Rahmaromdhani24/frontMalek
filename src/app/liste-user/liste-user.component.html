@@ -1,0 +1,40 @@
+<div class="display-area p-3">
+  <h2>Liste des Utilisateurs</h2>
+  
+  <!-- Toolbar avec zone de recherche (si nécessaire) -->
+  <div class="toolbar mb-3" >
+    <div class="add-employee">
+      <button type="button" class="btn btn-outline-success btn-lg" routerLink="/ajouter-utlisateur">Ajouter utilisateur</button>
+  </div>
+  </div>
+
+  <!-- Zone d'affichage de la table -->
+  <div class="display-area">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Id</th>
+          <th>Nom d'utlisateu</th>
+          <th>Rôle</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.role }}</td>
+          <td>
+            <button class="btn btn-primary btn-sm me-2" (click)="editUser(user.id)">Modifier</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Message si aucun utilisateur trouvé -->
+    <div *ngIf="users.length === 0" class="text-center mt-3">
+      <p class="text-secondary">Aucun utilisateur trouvé.</p>
+    </div>
+  </div>
+</div>

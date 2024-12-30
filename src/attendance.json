@@ -1,0 +1,16 @@
+{
+    "attendance": [
+    {
+      "id": 1,
+      "matr": 3,
+      "date": "2024-01-01",
+      "status": "Present"
+    },
+    {
+      "id": 2,
+      "matr": 88,
+      "date": "2024-01-01",
+      "status": "Absent"
+    }
+  ]
+}

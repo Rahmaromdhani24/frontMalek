@@ -1,0 +1,75 @@
+/* Styles généraux */
+.container {
+  background-color: #f8f9fa; /* Couleur de fond légère */
+  border-radius: 8px; /* Coins arrondis */
+  padding: 20px; /* Espacement interne */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+.display-area {
+  background-color: #ffffff; /* Fond blanc pour la zone d'affichage */
+  border-radius: 8px; /* Coins arrondis */
+  padding: 20px; /* Espacement interne */
+}
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+.add-employee {
+  flex: 1;
+}
+
+.search-employees {
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 250px;
+}
+
+.table {
+  margin-top: 20px;
+}
+
+.thead-dark {
+  background-color: #343a40;
+  color: white;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.btn-sm {
+  padding: .25rem .5rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: .2rem;
+}
+
+.text-secondary {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #6c757d !important;
+}
+
+.fs-2 {
+  font-size: 1.5rem !important;
+}
+
+.fw-bold {
+  font-weight: bold !important;
+}
+
+.fst-italic {
+  font-style: italic !important;
+}
+

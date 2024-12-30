@@ -1,0 +1,82 @@
+<div class="display-area p-3">
+  <div class="details-container">
+      <div class="detail-title">
+          <h2>Détails de l'employé</h2>
+      </div>
+      <div class="detail-info">
+          <div>
+              <strong>Matricule:</strong> {{ selectedEmployee?.matr }}
+          </div>
+          <div>
+              <strong>nom et prénom du l'employé:</strong> {{ selectedEmployee?.nom_et_prenom_employee }}
+          </div>
+          <div>
+              <strong>nom et prénom du père du l'employé:</strong> {{ selectedEmployee?.nom_et_prenom_employee_pere }}
+          </div>
+          
+          <div>
+              <strong>Numéro de téléphone:</strong> {{ selectedEmployee?.n_tel }}
+          </div>
+          <div>
+              <strong>Service:</strong> {{ selectedEmployee?.serv }}
+          </div>
+          <div>
+              <strong>Nom du chef:</strong> {{ selectedEmployee?.nom_de_chef }}
+          </div>
+          <div>
+              <strong>Classe:</strong> {{ selectedEmployee?.classe }}
+          </div>
+          <div>
+              <strong>Date de naissance:</strong> {{ selectedEmployee?.date_nais }}
+          </div>
+          <div>
+              <strong>Le genre:</strong> {{ selectedEmployee?.sf }}
+          </div>
+          <div>
+              <strong>État civil:</strong> {{ selectedEmployee?.etat }}
+          </div>
+          <div>
+              <strong>Nombre d'enfants :</strong> {{ selectedEmployee?.nb_enf }}
+          </div>
+          <div>
+              <strong>Date de recrutement :</strong> {{ selectedEmployee?.date_recr }}
+          </div>
+          <div>
+              <strong>Fin de contrat :</strong> {{ selectedEmployee?.fin_contr }}
+          </div>
+          <div>
+              <strong>Alerte :</strong> {{ selectedEmployee?.alerte }}
+          </div>
+          <div>
+              <strong>Quitte le :</strong> {{ selectedEmployee?.quitte_le }}
+          </div>
+          <div>
+              <strong>CIN :</strong> {{ selectedEmployee?.cin}}
+          </div>
+          <div>
+              <strong>Type de contrat :</strong> {{ selectedEmployee?.type_de_contrat }}
+          </div>
+          <div>
+              <strong>Pointure :</strong> {{ selectedEmployee?.pointure }}
+          </div>
+          <div>
+              <strong>Taille :</strong> {{ selectedEmployee?.taille }}
+          </div>
+          <div>
+              <strong>Remarque :</strong> {{ selectedEmployee?.remarque }}
+          </div>
+          <div>
+              <strong>Test :</strong> {{ selectedEmployee?.test ? 'Oui' : 'Non' }}
+          </div>
+          <div>
+              <strong>Domiciliation irré-salaire :</strong> {{ selectedEmployee?.domici_irre_salaire ? 'Oui' : 'Non' }}
+          </div>
+          <div *ngIf="alerte === 1" class="alert alert-warning">
+              La date de fin de contrat est proche (15 jours ou moins). Veuillez envisager un nouveau contrat.
+          </div>
+      </div>
+      <div class="back-button">
+          <button class="btn btn-secondary" (click)="retour()">Retour</button>
+      </div>
+  </div>
+</div>

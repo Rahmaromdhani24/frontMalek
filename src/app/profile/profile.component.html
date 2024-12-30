@@ -1,0 +1,39 @@
+<div class="profile-container">
+    <h2>Mon Profil</h2>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          class="form-control"
+          formControlName="email"
+          readonly
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Nouveau mot de passe</label>
+        <input
+          id="password"
+          type="password"
+          class="form-control"
+          formControlName="password"
+          placeholder="Entrez un nouveau mot de passe"
+        />
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirmer le mot de passe</label>
+        <input
+          id="confirmPassword"
+          type="password"
+          class="form-control"
+          formControlName="confirmPassword"
+          placeholder="Confirmez le mot de passe"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="profileForm.invalid">
+        Mettre à jour
+      </button>
+    </form>
+  </div>
+  

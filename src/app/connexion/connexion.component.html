@@ -1,0 +1,21 @@
+<div class="auth-container">
+  <img src="assets/images/pointage2.PNG" alt="Background Image" class="login-image">
+  <h2>Bienvenu</h2>
+  <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Nom d'utlisateur</label>
+      <input id="username" type="username" formControlName="username" placeholder="Entrez votre nom d'utlisateu" />
+      <div *ngIf="authForm.controls['username'].invalid && authForm.controls['username'].touched">
+        Le nom d'utlisateur est requis.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Mot de passe</label>
+      <input id="password" type="password" formControlName="password" placeholder="Entrez votre mot de passe" />
+      <div *ngIf="authForm.controls['password'].invalid && authForm.controls['password'].touched">
+        Le mot de passe est requis.
+      </div>
+    </div>
+    <button type="submit" [disabled]="authForm.invalid">Se connecter</button>
+  </form>
+</div>
